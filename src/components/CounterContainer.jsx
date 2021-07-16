@@ -101,7 +101,9 @@ class CounterContainer extends Component {
           <ButtonCommon
             buttonName="Reset"
             clickEvent={() => {
-              this.setState({ counter: localStorage.getItem('minVal') ?? 0 });
+              this.setState({
+                counter: Number(localStorage.getItem('minVal')) ?? 0,
+              });
             }}
           />
         </div>
