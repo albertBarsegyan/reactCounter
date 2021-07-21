@@ -9,12 +9,33 @@ class CounterContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      counter: Number(localStorage.getItem('minVal')) ?? 0,
-      step: Number(localStorage.getItem('step')) ?? 1,
-      minValue: Number(localStorage.getItem('minVal')) ?? 0,
-      maxValue: Number(localStorage.getItem('maxVal')) ?? 100,
+      counter: 0,
+      step: 1,
+      minValue: 1,
+      maxValue: 100,
       message: '',
     };
+  }
+
+  componentDidMount() {
+    Promise.resolve('success').then(() => {
+      localStorage.setItem('minVal', 0);
+      localStorage.setItem('step', 1);
+      localStorage.setItem('maxVal', 100);
+      return {
+        minVal: localStorage.getItem('minVal'),
+        step: localStorage.getItem('step'),
+        maxVal: localStorage.getItem('maxVal'),
+      };
+    }).then((data) => {
+      this.setState({
+        step: Number(data.step),
+        minValue: Number(data.minVal),
+        maxValue: Number(data.maxVal),
+      });
+
+      console.log(this.state, localStorage.getItem('step'));
+    });
   }
 
   handleIncrement = () => {
@@ -75,9 +96,9 @@ class CounterContainer extends Component {
         />
         {/* local storage values */}
         <LocalStorage
-          maxVal={localStorage.getItem('maxVal') ?? '0'}
-          minVal={localStorage.getItem('minVal') ?? '0'}
-          step={localStorage.getItem('step') ?? '0'}
+          maxVal={localStorage.getItem('maxVal') ?? 100}
+          minVal={localStorage.getItem('minVal') ?? 0}
+          step={localStorage.getItem('step') ?? 1}
         />
         {/* counter controller buttons */}
         <div className="flex items-center justify-center flex-row">

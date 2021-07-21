@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 class DataSpan extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     const { staticText, dynamicText } = this.props;

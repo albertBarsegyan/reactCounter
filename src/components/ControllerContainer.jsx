@@ -3,12 +3,8 @@ import ButtonCommon from './ButtonCommon';
 import InputCommon from './InputCommon';
 
 class ControllerContainer extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
-    const { min, max, onSubmit } = this.props;
+    const { onSubmit } = this.props;
     return (
       <form onSubmit={onSubmit}>
         <div className="flex items-center justify-center mt-20">
