@@ -18,28 +18,24 @@ class CounterContainer extends Component {
   }
 
   componentDidMount() {
-    Promise.resolve('success').then(() => {
-      localStorage.setItem('minVal', 0);
-      localStorage.setItem('step', 1);
-      localStorage.setItem('maxVal', 100);
-      return {
+    Promise.resolve('success')
+      .then(() => ({
         minVal: localStorage.getItem('minVal'),
         step: localStorage.getItem('step'),
         maxVal: localStorage.getItem('maxVal'),
-      };
-    }).then((data) => {
-      this.setState({
-        step: Number(data.step),
-        minValue: Number(data.minVal),
-        maxValue: Number(data.maxVal),
+      }))
+      .then((data) => {
+        this.setState({
+          step: Number(data.step),
+          minValue: Number(data.minVal),
+          maxValue: Number(data.maxVal),
+          counter: Number(data.minVal),
+        });
       });
-
-      console.log(this.state, localStorage.getItem('step'));
-    });
   }
 
   handleIncrement = () => {
-    const { counter, step, maxValue, minValue } = this.state;
+    const { counter, step, maxValue } = this.state;
     if (counter + step < maxValue) {
       this.setState({ counter: counter + step });
     } else {
