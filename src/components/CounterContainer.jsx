@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import ButtonCommon from './ButtonCommon';
 import ControllerContainer from './ControllerContainer';
-import LocalStorage from './LocalStorage';
 import MessageContainer from './MessageContainer';
 
 class CounterContainer extends Component {
@@ -20,9 +19,9 @@ class CounterContainer extends Component {
   componentDidMount() {
     Promise.resolve('success')
       .then(() => ({
-        minVal: localStorage.getItem('minVal'),
-        step: localStorage.getItem('step'),
-        maxVal: localStorage.getItem('maxVal'),
+        minVal: localStorage.getItem('minVal') ?? 0,
+        step: localStorage.getItem('step') ?? 1,
+        maxVal: localStorage.getItem('maxVal') ?? 100,
       }))
       .then((data) => {
         this.setState({
@@ -90,7 +89,7 @@ class CounterContainer extends Component {
           max={maxValue}
           onSubmit={this.handleSubmit}
         />
-           
+
         {/* counter controller buttons */}
         <div className="flex items-center justify-center flex-row">
           <div className="mx-4 my-4">

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 class MessageContainer extends Component {
-
   render() {
     const { messageValue } = this.props;
 
