@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 class ButtonCommon extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     const { buttonName, clickEvent, type } = this.props;

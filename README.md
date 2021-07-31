@@ -13,6 +13,6 @@
 
 ### Green Counter UI
 
-![Product UI](./src/img/counterScreen.png)
+![Product UI](./src/assets/img/counterScreen.png)
 
 Play with counter, or count time.

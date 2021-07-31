@@ -90,12 +90,7 @@ class CounterContainer extends Component {
           max={maxValue}
           onSubmit={this.handleSubmit}
         />
-        {/* local storage values */}
-        <LocalStorage
-          maxVal={localStorage.getItem('maxVal') ?? 100}
-          minVal={localStorage.getItem('minVal') ?? 0}
-          step={localStorage.getItem('step') ?? 1}
-        />
+           
         {/* counter controller buttons */}
         <div className="flex items-center justify-center flex-row">
           <div className="mx-4 my-4">

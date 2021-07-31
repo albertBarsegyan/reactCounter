@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
 class InputCommon extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     const { placeHold, name, min, max } = this.props;
